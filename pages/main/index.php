@@ -27,7 +27,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 										<div class="productinfo text-center">
-											<a href="index.php?quanly=sanpham&idsanpham=<?php echo $row_sale['id_sanpham']?>">
+											<a href="index.php?quanly=khuyenmai&idkhuyenmai=<?php echo $row_sale['id_sanpham']?>">
 											<img src="admincp/modules/quanlysp/uploads/<?php echo $row_sale['hinhanh']?>" alt="" />
 											<!-- <h2 style="color: black;text-decoration:line-through;"><?php echo number_format($row_sale['giasp'],0,',','.').' vnd'?></h2> -->
 											<h2 style="color: black;text-decoration:line-through;"><?php echo number_format($row_sale['giasp'],0,',','.').' vnd'?></h2>

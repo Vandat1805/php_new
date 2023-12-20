@@ -233,7 +233,6 @@
 	$('.add-to-cart').click(function(){
 		var id= $(this).data('id_cart');
 		var product_cart = $('.product_cart_' + id).val();
-		alert(product_cart);
 				$.ajax({
 					url:'/php_basic/pages/main/themgiohang.php',
 					method:'POST',

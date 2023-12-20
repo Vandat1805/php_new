@@ -100,4 +100,11 @@ if ($cart_payment=='chuyen khoan') {
     <?php
 }
     ?>
+    <?php
+    if (isset($_SESSION['giamtheotien'])) {
+        unset($_SESSION['giamtheotien']);
+    }elseif (isset($_SESSION['giamphantram'])) {
+        unset($_SESSION['giamphantram']);
+    }
+    ?>
 <p>Cam on ban da mua hang chung toi se lien he voi ban thoi gian som nhat</p>

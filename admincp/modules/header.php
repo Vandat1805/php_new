@@ -240,21 +240,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="index.php?dangxuat=1"><i class="fa fa-key"></i> Dang xuat: <?php if (isset($_SESSION['dangnhap'])) {
-                    echo $_SESSION['dangnhap'];
-                } ?></a></li>
+                <li><a href="#"><i class=" fa fa-suitcase"></i>Thông tin tài khoản</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i>Cài đặt tài khoản</a></li>
+                <li><a href="index.php?dangxuat=1"><i class="fa fa-key"></i>Dang xuat tai khoan</a></li>
             </ul>
         </li>
-        <!-- user login dropdown end -->
        
     </ul>
-    <!--search & user info end-->
 </div>
 </header>
-<!--header end-->
-<!--sidebar start-->
 
 </body>
 </html>

@@ -1,10 +1,11 @@
 <?php
-            $sql_chitiet="SELECT * FROM tbl_sanpham,tbl_danhmuc,tbl_thuonghieu,tbl_even where tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.id_sanpham='$_GET[idsanpham]' AND tbl_sanpham.id_thuonghieu=tbl_thuonghieu.id_thuonghieu AND tbl_sanpham.id_even != tbl_even.id_even  LIMIT 1";
+            $sql_chitiet="SELECT * FROM tbl_sanpham,tbl_danhmuc,tbl_thuonghieu,tbl_even,tbl_khuyenmai where tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.id_sanpham='$_GET[idkhuyenmai]' AND tbl_sanpham.id_thuonghieu=tbl_thuonghieu.id_thuonghieu AND tbl_even.id_even = tbl_khuyenmai.id_even AND tbl_khuyenmai.id_sanpham = tbl_sanpham.id_sanpham LIMIT 1";
             $query_chitiet=mysqli_query($conn,$sql_chitiet);
 ?>
 <div class="col-sm-9 padding-right">
     <?php
      while($row_chitiet=mysqli_fetch_array($query_chitiet)){
+      $gia_sale = $row_chitiet['giasp'] * ($row_chitiet['even_number']/100);
     ?>
             <div class="product-details">
               <!--product-details-->
@@ -41,7 +42,8 @@
                   <h2><?php echo $row_chitiet['tensanpham']?></h2>
                   <p>Ma san pham: <?php echo $row_chitiet['masp']?></p>
                   <span>
-                     <span><?php echo number_format($row_chitiet['giasp'],0,',','.').' vnd'?></span>
+                     <span style="color: black;text-decoration:line-through;"><?php echo number_format($row_chitiet['giasp'],0,',','.').' vnd'?></span>
+                     <span><?php echo number_format($gia_sale,0,',','.').' vnd'?></span>
                     <br><br><br>
                   <input type="hidden" value="<?php echo $row_chitiet['id_sanpham']?>" class="product_cart_<?php echo $row_chitiet['id_sanpham']?>">
                     <button style="background: #FE980F;border: 0 none;border-radius: 0;color: #FFFFFF;font-family: 'Roboto', sans-serif;font-size: 15px;margin-bottom: 10px;margin-left: 20px;padding: 6px 12px;" type="button" name="themgiohang" class="add-to-cart" data-id_cart="<?php echo $row_chitiet['id_sanpham']?>">
@@ -63,7 +65,7 @@
 ?>
             <!--/product-details-->
 <?php
-$sql_mota="SELECT * FROM tbl_sanpham,tbl_danhmuc where tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.id_sanpham='$_GET[idsanpham]'  LIMIT 1";
+$sql_mota="SELECT * FROM tbl_sanpham,tbl_danhmuc where tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.id_sanpham='$_GET[idkhuyenmai]'  LIMIT 1";
 $query_mota=mysqli_query($conn,$sql_mota);
 ?>
             <div class="category-tab shop-details-tab">
@@ -78,7 +80,7 @@ $query_mota=mysqli_query($conn,$sql_mota);
                   </li>
                   <!-- <li><a href="#tag" data-toggle="tab"></a></li> -->
                   <li class="">
-                    <a href="#reviews" data-toggle="tab">Danh gia</a>
+                    <a href="#reviews" data-toggle="tab">Binh luan</a>
                   </li>
                 </ul>
               </div>
@@ -106,7 +108,7 @@ $query_mota=mysqli_query($conn,$sql_mota);
                   <div class="col-sm-12">
                     <?php 
 
-                    $sql_binhluan = "SELECT DISTINCT id_coment,tenkhachhang,date_coment,noidung_coment FROM tbl_coment,tbl_sanpham,tbl_dangky WHERE tbl_coment.id_dangky=tbl_dangky.id_dangky AND tbl_coment.id_chitietsanpham = '$_GET[idsanpham]'";
+                    $sql_binhluan = "SELECT DISTINCT id_coment,tenkhachhang,date_coment,noidung_coment FROM tbl_coment,tbl_sanpham,tbl_dangky WHERE tbl_coment.id_dangky=tbl_dangky.id_dangky AND tbl_coment.id_chitietsanpham = '$_GET[idkhuyenmai]'";
                     $query_binhluan = mysqli_query($conn,$sql_binhluan);
                     ?>
                     <?php
@@ -155,139 +157,4 @@ $query_mota=mysqli_query($conn,$sql_mota);
                 <?php
      }
                     ?>
-            <!--/category-tab-->
-
-            <!-- <div class="recommended_items">
-              <h2 class="title text-center">recommended items</h2>
-
-              <div
-                id="recommended-item-carousel"
-                class="carousel slide"
-                data-ride="carousel"
-              >
-                <div class="carousel-inner">
-                  <div class="item active">
-                    <div class="col-sm-4">
-                      <div class="product-image-wrapper">
-                        <div class="single-products">
-                          <div class="productinfo text-center">
-                            <img src="images/home/recommend1.jpg" alt="" />
-                            <h2>$56</h2>
-                            <p>Easy Polo Black Edition</p>
-                            <button
-                              type="button"
-                              class="btn btn-default add-to-cart"
-                            >
-                              <i class="fa fa-shopping-cart"></i>Add to cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="product-image-wrapper">
-                        <div class="single-products">
-                          <div class="productinfo text-center">
-                            <img src="images/home/recommend2.jpg" alt="" />
-                            <h2>$56</h2>
-                            <p>Easy Polo Black Edition</p>
-                            <button
-                              type="button"
-                              class="btn btn-default add-to-cart"
-                            >
-                              <i class="fa fa-shopping-cart"></i>Add to cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="product-image-wrapper">
-                        <div class="single-products">
-                          <div class="productinfo text-center">
-                            <img src="images/home/recommend3.jpg" alt="" />
-                            <h2>$56</h2>
-                            <p>Easy Polo Black Edition</p>
-                            <button
-                              type="button"
-                              class="btn btn-default add-to-cart"
-                            >
-                              <i class="fa fa-shopping-cart"></i>Add to cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="col-sm-4">
-                      <div class="product-image-wrapper">
-                        <div class="single-products">
-                          <div class="productinfo text-center">
-                            <img src="images/home/recommend1.jpg" alt="" />
-                            <h2>$56</h2>
-                            <p>Easy Polo Black Edition</p>
-                            <button
-                              type="button"
-                              class="btn btn-default add-to-cart"
-                            >
-                              <i class="fa fa-shopping-cart"></i>Add to cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="product-image-wrapper">
-                        <div class="single-products">
-                          <div class="productinfo text-center">
-                            <img src="images/home/recommend2.jpg" alt="" />
-                            <h2>$56</h2>
-                            <p>Easy Polo Black Edition</p>
-                            <button
-                              type="button"
-                              class="btn btn-default add-to-cart"
-                            >
-                              <i class="fa fa-shopping-cart"></i>Add to cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="product-image-wrapper">
-                        <div class="single-products">
-                          <div class="productinfo text-center">
-                            <img src="images/home/recommend3.jpg" alt="" />
-                            <h2>$56</h2>
-                            <p>Easy Polo Black Edition</p>
-                            <button
-                              type="button"
-                              class="btn btn-default add-to-cart"
-                            >
-                              <i class="fa fa-shopping-cart"></i>Add to cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  class="left recommended-item-control"
-                  href="#recommended-item-carousel"
-                  data-slide="prev"
-                >
-                  <i class="fa fa-angle-left"></i>
-                </a>
-                <a
-                  class="right recommended-item-control"
-                  href="#recommended-item-carousel"
-                  data-slide="next"
-                >
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </div>
-            </div> -->
-            <!--/recommended_items-->
           </div>

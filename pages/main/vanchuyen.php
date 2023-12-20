@@ -99,19 +99,10 @@ if (isset($_SESSION['id_khachhang'])) {
 					<tbody>
                         <?php
                         if (isset($_SESSION['cart'])) {
-                            if (isset($_SESSION['coupon'])) {
-                                if ($_SESSION['coupon'][0][1]==1) {
-                                    $tongtien = $_SESSION['giamphantram'];
-                                }
-                                elseif($_SESSION['coupon'][0][1]==2){
-                                    $tongtien = $_SESSION['giamtheotien'];
-                                }
-                           }else{
                                $tongtien = 0;
                                foreach ($_SESSION['cart'] as $cart_item) {
                                    $thanhtien = $cart_item['soluong']*$cart_item['giasp'];
                                    $tongtien+=$thanhtien;
-                                }
                         ?>
 						<tr>
 							<td class="cart_product">
@@ -136,12 +127,6 @@ if (isset($_SESSION['id_khachhang'])) {
                         <?php
                         }
                         ?>
-                        <tr>
-                            <td>
-                                <!-- <a class="btn btn-default update" href="">Cap nhat</a> -->
-                                <!-- <a class="btn btn-default update" href="pages/main/themgiohang.php?xoatatca=1">Xoa tat ca</a> -->
-                            </td>
-                        </tr>
                         <?php
                          }else{
                         ?>
@@ -160,6 +145,14 @@ if (isset($_SESSION['id_khachhang'])) {
 						<ul>
                             <?php
                             if(isset($_SESSION['cart'])){
+                                if (isset($_SESSION['coupon'])) {
+                                    if ($_SESSION['coupon'][0][1]==1) {
+                                        $tongtien = $_SESSION['giamphantram'];
+                                    }
+                                    elseif($_SESSION['coupon'][0][1]==2){
+                                        $tongtien = $_SESSION['giamtheotien'];
+                                    }
+                               }
                             ?>
 							<li>Tong tien <span><?php echo number_format($tongtien,0,',','.').' đ' ?></span></li>
                             <?php

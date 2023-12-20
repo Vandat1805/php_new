@@ -78,7 +78,7 @@ $query_mota=mysqli_query($conn,$sql_mota);
                   </li>
                   <!-- <li><a href="#tag" data-toggle="tab"></a></li> -->
                   <li class="">
-                    <a href="#reviews" data-toggle="tab">Danh gia</a>
+                    <a href="#reviews" data-toggle="tab">Binh luan</a>
                   </li>
                 </ul>
               </div>

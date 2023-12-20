@@ -15,7 +15,7 @@
                 </li>
                 <li class="sub-menu">
                     <a href="">
-                    <i class="fas fa-plane"></i>
+                    <i class="fas fa-calendar-plus"></i>
                         <span>Su kien</span>
                     </a>
                     <ul class="sub">

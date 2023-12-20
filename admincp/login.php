@@ -41,16 +41,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <div class="log-w3">
 <div class="w3layouts-main">
-	<h2>Sign In Now</h2>
+	<h2>Dang nhap admin</h2>
 		<form action="" autocomplete="off" method="POST">
 			<input type="email" class="ggg" name="email" placeholder="E-MAIL" required="">
 			<input type="password" class="ggg" name="password" placeholder="PASSWORD" required="">
-			<span><input type="checkbox" />Remember Me</span>
-			<h6><a href="#">Forgot Password?</a></h6>
+			<span><input type="checkbox" />Luu thong tin dang nhap</span>
+			<h6><a href="#">Quen mat khau</a></h6>
 				<div class="clearfix"></div>
-				<input type="submit" value="Sign In" name="dangnhap">
+				<input type="submit" value="Đăng nhập" name="dangnhap">
 		</form>
-		<p>Don't Have an Account ?<a href="registration.html">Create an account</a></p>
+		<p>Khong co tai khoan ?<a href="registration.html">Tạo tài khoan</a></p>
 </div>
 </div>
 <script src="js/bootstrap.js"></script>

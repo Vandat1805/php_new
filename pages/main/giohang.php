@@ -127,7 +127,8 @@ if (isset($_SESSION['id_khachhang'])) {
 							<span><?php echo number_format($total,0,',','.').' đ' ?></span>
                             <?php
                             }
-                            ?></span></li>
+                            ?>
+							</span></li>
 							<li style="list-style: none;">
 							<?php
 							if (isset($_POST['coupon'])) {
@@ -149,9 +150,9 @@ if (isset($_SESSION['id_khachhang'])) {
 										echo ' k';
 										$total_coupon = $total-$_SESSION['coupon'][0][2];
 										echo '<li>Tong da giam: ';
-										echo number_format($total-$total_coupon,0,',','.').' đ';
+										echo number_format($total_coupon,0,',','.').' đ';
 										echo '</li>';
-										$_SESSION['giamtheotien'] = $total-$total_coupon;
+										$_SESSION['giamtheotien'] = $total_coupon;
 									}
 								}	
 								?>

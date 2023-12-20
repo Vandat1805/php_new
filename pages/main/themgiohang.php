@@ -66,7 +66,6 @@ if (isset($_GET['xoatatca'])&&$_GET['xoatatca']==1) {
 if (isset($_POST['product_cart'])) {
     // session_destroy();
     $id=$_POST['product_cart'];
-    $_SESSION['id_sale'] = $id;
     $soluong=1;
     $sql = "SELECT * FROM tbl_sanpham WHERE id_sanpham='".$id."' LIMIT 1";
     $query = mysqli_query($conn,$sql);

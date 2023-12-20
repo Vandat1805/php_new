@@ -19,6 +19,8 @@
                     include("main/lienhe.php");
                 }elseif($tam=='sanpham'){
                     include("main/chitietsp.php");
+                }elseif($tam=='khuyenmai'){
+                    include("main/chitietkm.php");
                 }elseif($tam=='dangky'){
                     include("main/dangky.php");
                 }elseif($tam=='dangxuat'){
