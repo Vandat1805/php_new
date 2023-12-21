@@ -43,7 +43,7 @@
 								<?php
 						while($row_danhmuc = mysqli_fetch_array($query_danhmuc)){
 										?>
-                                        <li style="text-transform: uppercase;"><a href="danh-muc/<?php echo $row_pro['id_danhmuc']?>.html"><?php echo $row_danhmuc['ten_danhmuc']?></a></li>
+                                        <li style="text-transform: uppercase;"><a href="index.php?quanly=danhmucsanpham&id=<?php echo $row_danhmuc['id_danhmuc']?>"><?php echo $row_danhmuc['ten_danhmuc']?></a></li>
 									<?php
 						}
 							?>
@@ -94,8 +94,8 @@
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
+									<h1><span>TAKI</span>-SHOPPER</h1>
+									<h2>CẬP NHẬP CÁC SẢN PHẨM MỚI</h2>
 									<p>Mo hinh do choi one piece re va chat luong</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
@@ -106,9 +106,9 @@
 							</div>
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<h1><span>TAKI</span>-SHOPPER</h1>
+									<h2>100% SẢN PHẨM KHÔNG ĐỘC HẠI VÀ KHÔNG GÂY KHÓ CHỊU KHI SỬ DỤNG</h2>
+									<p>Các sản phẩm làm từ Vinyl, ABS Plastic, Resin,  Polystone, Sofubi</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">
@@ -119,9 +119,9 @@
 							
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<h1><span>TAKI</span>-SHOPPER</h1>
+									<h2>CÁC MẪU SẢN PHẨM ĐẸP VÀ RẺ</h2>
+									<p>Nếu bạn muốn mua sản phẩm đẹp và rẻ ghé ngay Taki Shopper </p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">

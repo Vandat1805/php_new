@@ -7,6 +7,7 @@
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="http://localhost/php_basic/admincp/"><i class="fas fa-user-cog"></i> Đăng nhập cho quản trị viên</a></li>
 							</ul>
 						</div>
 					</div>

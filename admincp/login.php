@@ -42,15 +42,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="log-w3">
 <div class="w3layouts-main">
 	<h2>Dang nhap admin</h2>
-		<form action="" autocomplete="off" method="POST">
-			<input type="email" class="ggg" name="email" placeholder="E-MAIL" required="">
-			<input type="password" class="ggg" name="password" placeholder="PASSWORD" required="">
-			<span><input type="checkbox" />Luu thong tin dang nhap</span>
-			<h6><a href="#">Quen mat khau</a></h6>
-				<div class="clearfix"></div>
-				<input type="submit" value="Đăng nhập" name="dangnhap">
-		</form>
-		<p>Khong co tai khoan ?<a href="registration.html">Tạo tài khoan</a></p>
+    <form action="" autocomplete="off" method="POST">
+        <input type="email" class="ggg" name="email" placeholder="E-MAIL" required="">
+        <input type="password" class="ggg" name="password" placeholder="PASSWORD" required="">
+        <span><input type="checkbox" />Luu thong tin dang nhap</span>
+        <h6><a href="#">Quen mat khau</a></h6>
+        <div class="clearfix"></div>
+        <input type="submit" value="Đăng nhập" name="dangnhap">
+    </form>
+    <p>Khong co tai khoan ?<a href="registration.html">Tạo tài khoan</a></p>
+    <a style="text-align: center;" href="http://localhost/php_basic/"><h3 style="text-decoration: underline;">Quay lại trang mua hàng</h3></a>
 </div>
 </div>
 <script src="js/bootstrap.js"></script>

@@ -100,7 +100,7 @@ if (isset($_SESSION['id_khachhang'])) {
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
                                     <a class="cart_quantity_down" href="pages/main/themgiohang.php?tru=<?php echo $cart_item['id']?>"> - </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="<?php echo $cart_item['soluong']?>" autocomplete="off" size="1">
+									<input class="cart_quantity_input" type="text" name="quantity" value="<?php echo $cart_item['soluong']?>" autocomplete="off" size="1" disabled>
 									<a class="cart_quantity_up" href="pages/main/themgiohang.php?cong=<?php echo $cart_item['id']?>"> + </a>
 								</div>
 							</td>
