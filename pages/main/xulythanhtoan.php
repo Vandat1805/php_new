@@ -8,6 +8,12 @@
     use Carbon\CarbonInterval;
     
     $now = Carbon::now('Asia/Ho_Chi_Minh');
+    $now_payment = $now->toDateString();
+    $timestamp = strtotime($now);
+    $ngaydat = date('d/m/Y',$timestamp);
+    $giaodukien = $now->addDays(5);
+    $fortmat_ngaygiao = strtotime($giaodukien);
+    $ngaygiao = date('d/m/Y',$fortmat_ngaygiao);
     $id_khachhang = $_SESSION['id_khachhang'];
     $code_order = rand(0,9999);
     $cart_payment = $_POST['payment'];
@@ -107,7 +113,6 @@
                         $_SESSION['code_cart'] = $code_order;
                         $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date,cart_payment,cart_shipping)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."','".$cart_payment."','".$id_shipping."')";
                          $cart_query = mysqli_query($conn,$insert_cart);
-
                          if ($cart_query) {
                           //them gio hang chi tiet
                    foreach ($_SESSION['cart'] as $key => $value) {
@@ -115,9 +120,29 @@
                     $soluong = $value['soluong'];
                     $insert_order_detail = "INSERT INTO tbl_cart_detail(id_sanpham,code_cart,soluongmua)VALUES('".$id_sanpham."','".$code_order."','".$soluong."')";
                     mysqli_query($conn,$insert_order_detail);
+                    
                 }
+                
             }
                         header('Location: ' . $vnp_Url);
+                             //gui mail
+        $tieude = "Dat hang website raiki shop thanh cong";
+        $noidung ="<p>Cam on quy khach da dat hang cua chung toi voi ma don hang: ".$code_order."</p>";
+        $noidung .="<p>Đơn hàng được đặt vào ngày ".$ngaydat."</p>";
+        $noidung .="<h4>Don dat hang bao gom:</h4>";
+        foreach ($_SESSION['cart'] as $key => $val) {
+            $noidung .= "<ul style='border:1px solid blue;margin:10px;'>
+            <li>Ten san pham: ".$val['tensanpham']."</li>
+            <li>Ma san pham:".$val['masp']."</li>
+            <li>Gia san pham:".number_format($val['giasp'],0,',','.')."d</li>
+            <li>So luong:".$val['soluong']."</li>
+            </ul>";
+        }
+        $noidung .="<h3>Thoi gian giao du kien khoang 5 ngay tu ngay ".$ngaydat." -> ".$ngaygiao."</h3>";
+        $noidung .="Quy khach vui long nhan cuoc goi tu so 1800 5678 cua shop chung toi vao ngay".$ngaygiao."</h3>";
+        $maildathang = $_SESSION['email'];
+        $mail = new Mailer();
+        $mail->dathangmail($tieude,$noidung,$maildathang);
                         die();
                     } else {
                         echo json_encode($returnData);
@@ -144,6 +169,7 @@ if ($cart_query) {
         //gui mail
         $tieude = "Dat hang website raiki shop thanh cong";
         $noidung ="<p>Cam on quy khach da dat hang cua chung toi voi ma don hang: ".$code_order."</p>";
+        $noidung .="<p>Đơn hàng được đặt vào ngày ".$ngaydat."</p>";
         $noidung .="<h4>Don dat hang bao gom:</h4>";
         foreach ($_SESSION['cart'] as $key => $val) {
             $noidung .= "<ul style='border:1px solid blue;margin:10px;'>
@@ -153,12 +179,14 @@ if ($cart_query) {
             <li>So luong:".$val['soluong']."</li>
             </ul>";
         }
+        $noidung .="<h3>Thoi gian giao du kien khoang 5 ngay tu ngay ".$ngaydat." -> ".$ngaygiao."</h3>";
+        $noidung .="Quy khach vui long nhan cuoc goi tu so 1800 5678 cua shop chung toi vao ngay".$ngaygiao."</h3>";
         $maildathang = $_SESSION['email'];
         $mail = new Mailer();
         $mail->dathangmail($tieude,$noidung,$maildathang);
     
     unset($_SESSION['cart']);
 }
-    // echo '<script>location.href="../../index.php?quanly=camon"</script>';
+    echo '<script>location.href="../../index.php?quanly=camon"</script>';
     // header('Location:../../index.php?quanly=camon');
 ?>

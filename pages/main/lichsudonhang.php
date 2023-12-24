@@ -19,12 +19,12 @@
             <th>Dia chi</th>
             <th>Email</th>
             <th>So dien thoai</th>
-            <th>Tinh trang</th>
+            <!-- <th>Tinh trang</th> -->
             <th>Ngay dat</th>
             <th>Quan ly</th>
             <th>In don hang</th>
             <th>Hinh thuc thanh toan</th>
-            <th style="width:30px;"></th>
+            <th>Trang thai don hang</th>
           </tr>
         </thead>
         <tbody>
@@ -41,15 +41,6 @@
                 <td><?php echo $row['diachi']?></td>
                 <td><?php echo $row['email']?></td>
                 <td><?php echo $row['dienthoai']?></td>
-                <td>
-                <?php
-                if ($row['cart_status']==1) {
-                    echo 'Don hang moi';
-                }else{
-                    echo'Da xem';
-                }
-                ?>
-                </td>
                 <td><?php echo $row['cart_date']?></td>
                 <td>
               <a href="index.php?quanly=xemdonhang&code=<?php echo $row['code_cart']?>" class="active" ui-toggle-class=""><i class="fas fa-eye"></i></a>
@@ -70,6 +61,18 @@
                 }
         ?>
         </td>
+        <?php
+            if ($row['order_status']==0) {
+              echo'<td style="color:red;">Dang cho xac nhan don hang</td>';
+            }elseif ($row['order_status']==1) {
+              echo'<td style="color:blue;">Da xac nhan don hang</td>';
+            }elseif ($row['order_status']==2) {
+              echo'<td style="color:orange;">Dang cho van chuyen</td>';
+            }elseif ($row['order_status']==3) {
+              echo'<td style="color:green;">Da giao xong</td>';
+            }
+            ?>
+        <!-- <td style="color:green;">Da giao xong</td> -->
                 </tr>
             <?php
             }

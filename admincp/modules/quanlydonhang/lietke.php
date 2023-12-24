@@ -24,6 +24,7 @@
             <th>Ngay dat</th>
             <th>Quan ly</th>
             <th>In don hang</th>
+            <th>Trạng thái đơn hàng</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
@@ -57,6 +58,31 @@
                 <td>
               <a href="modules/quanlydonhang/indonhang.php?code=<?php echo $row['code_cart']?>" ui-toggle-class="">In don hang</i></a>
             </td>
+            <form action="modules/quanlydonhang/xuly.php?idcart=<?php echo $row['id_cart'];?>" method="post">
+              <td><select name="order_status" class="form-control input-sm m-bot15">
+                <option value="">---CHON TRANG THAI DON HANG---</option>
+                                        <option value="0">Dang cho xac nhan don hang</option>
+                                        <option value="1">Da xac nhan don hang</option>
+                                        <option value="2">Dang cho van chuyen</option>
+                                        <option value="3">Da giao xong</option>
+                                      </select>
+                                      <button type="submit" name="tinhtrangdon" class="btn btn-info">Xac nhan</button>
+                </form>
+                <?php
+            if ($row['order_status']==0) {
+              echo'Dang cho xac nhan don hang';
+            }elseif ($row['order_status']==1) {
+              echo'Da xac nhan don hang';
+            }elseif ($row['order_status']==2) {
+              echo'Dang cho van chuyen';
+            }elseif ($row['order_status']==3) {
+              echo'Da giao xong';
+            }
+            ?>
+            </td>
+            <!-- <td>Da xac nhan don hang</td>
+            <td>Dang cho van chuyen</td>
+            <td>Da giao xong</td> -->
                 </tr>
             <?php
             }

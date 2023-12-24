@@ -41,10 +41,9 @@ try {
     $mail->isHTML(true);   // Set email format to HTML
     $mail->Subject = $tieude;
     $mail->Body = $noidung;
-    // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
- 
     $mail->send();
     echo 'Message has been sent';
+    echo $noidung;
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }

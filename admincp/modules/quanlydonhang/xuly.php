@@ -5,6 +5,7 @@ session_start();
   use Carbon\CarbonInterval;
 include('../../config/config.php');
 $now = Carbon::now('Asia/Ho_Chi_minh')->toDateString();
+$order_status = $_POST['order_status'];
 if (isset($_GET['code'])) {
     $code_cart = $_GET['code'];
     $sql = mysqli_query($conn,"UPDATE tbl_cart SET cart_status=0 WHERE code_cart='".$code_cart."'");
@@ -35,6 +36,10 @@ if (isset($_GET['code'])) {
             $sql_update_thongke = mysqli_query($conn,"UPDATE tbl_thongke SET soluongban='$soluongban',doanhthu='$doanhthu',donhang='$donhang' WHERE ngaydat='$now'");
         }
     }
+    header('Location:../../index.php?action=quanlydonhang&query=lietke');
+}elseif (isset($_POST['tinhtrangdon'])) {
+    $sql_update = "UPDATE tbl_cart SET order_status='".$order_status."' WHERE id_cart='$_GET[idcart]'";
+    mysqli_query($conn,$sql_update); 
     header('Location:../../index.php?action=quanlydonhang&query=lietke');
 }
 // session_start();

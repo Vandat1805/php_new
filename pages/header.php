@@ -75,7 +75,16 @@
 								}
 								?>
 								<li><a href="index.php?quanly=giohang"><i class="fas fa-shopping-cart"></i> Gio hang</a></li>
+								<?php
+								if (isset($_SESSION['id_khachhang'])) {
+								?>
+								<?php
+								}else{
+									?>
 								<li><a href="index.php?quanly=dangnhap"><i class="fas fa-sign-in-alt"></i> Dang Nhap</a></li>
+									<?php
+								}
+									?>
 								<?php
 								if (isset($_SESSION['id_khachhang'])) {
 								?>

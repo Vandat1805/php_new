@@ -5,8 +5,9 @@
     require('../../Carbon/autoload.php');
     use Carbon\Carbon;
     use Carbon\CarbonInterval;
-    
     $now = Carbon::now('Asia/Ho_Chi_Minh');
+    $ngaydat = $now->addDays(5);
+    $fortmat_ngaydat = substr($ngaydat,0,10);
     $id_khachhang = $_SESSION['id_khachhang'];
     $code_order = rand(0,9999);
     $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."')";
@@ -30,9 +31,11 @@
             <li>".$val['soluong']."</li>
             </ul>";
         }
+        $noidung .="<h3>Đơn hàng sẽ được giao vào ngày ".$fortmat_ngaydat."</h3>";
+        // $thongbao = "Quy khach nho kiem tra mail".$_SESSION['mail']."de xem thong tin va ngay giao don hang"."</br>"."Vui long nhan dien thoai qua so 1900 5688 cua shop chung toi";
         $maildathang = $_SESSION['email'];
         $mail = new Mailer();
-        $mail->dathangmail($tieude,$noidung,$maildathang);
+        $mail->dathangmail($tieude,$noidung,$ngaygiao,$maildathang);
     }
     unset($_SESSION['cart']);
     echo '<script>location.href="../../index.php?quanly=camon"</script>';

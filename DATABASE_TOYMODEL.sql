@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 20, 2023 lúc 12:44 PM
+-- Thời gian đã tạo: Th12 24, 2023 lúc 01:59 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -107,33 +107,18 @@ CREATE TABLE `tbl_cart` (
   `cart_status` int(11) NOT NULL,
   `cart_date` varchar(50) NOT NULL,
   `cart_payment` varchar(50) NOT NULL,
-  `cart_shipping` int(11) NOT NULL
+  `cart_shipping` int(11) NOT NULL,
+  `order_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_cart`
 --
 
-INSERT INTO `tbl_cart` (`id_cart`, `id_khachhang`, `code_cart`, `cart_status`, `cart_date`, `cart_payment`, `cart_shipping`) VALUES
-(19, 7, '5601', 1, '2023-10-15 16:21:19', 'tien mat', 4),
-(22, 7, '2598', 1, '2023-10-15 16:37:57', 'momo', 4),
-(26, 7, '9201', 0, '2023-10-15 20:19:09', 'vnpay', 4),
-(27, 9, '8665', 0, '2023-10-16 11:19:29', 'tien mat', 6),
-(28, 9, '5171', 0, '2023-10-17 17:57:24', 'vnpay', 6),
-(29, 9, '7685', 0, '2023-10-22 17:48:55', 'vnpay', 6),
-(30, 9, '7047', 1, '2023-10-23 12:04:43', 'tien mat', 6),
-(31, 9, '249', 1, '2023-10-23 16:26:34', 'chuyen khoan', 6),
-(32, 9, '4820', 1, '2023-10-23 16:47:10', 'chuyen khoan', 6),
-(33, 9, '831', 1, '2023-10-23 18:03:24', 'tien mat', 6),
-(34, 11, '468', 1, '2023-10-23 18:50:15', 'momo', 7),
-(35, 11, '8036', 1, '2023-10-23 19:02:25', 'vnpay', 7),
-(36, 9, '6689', 1, '2023-10-23 19:06:36', 'momo', 6),
-(37, 9, '6207', 1, '2023-10-23 19:08:50', 'tien mat', 6),
-(38, 11, '8836', 1, '2023-10-23 19:11:31', 'tien mat', 7),
-(39, 11, '3544', 1, '2023-10-23 19:11:36', 'tien mat', 7),
-(40, 9, '2084', 1, '2023-11-03 20:35:24', 'vnpay', 6),
-(41, 9, '2164', 1, '2023-11-03 20:39:07', 'vnpay', 6),
-(42, 7, '1220', 1, '2023-11-05 12:11:18', 'momo', 4);
+INSERT INTO `tbl_cart` (`id_cart`, `id_khachhang`, `code_cart`, `cart_status`, `cart_date`, `cart_payment`, `cart_shipping`, `order_status`) VALUES
+(137, 9, '9317', 1, '2023-12-28 19:42:54', 'chuyen khoan', 6, 3),
+(138, 9, '850', 1, '2023-12-28 19:51:39', 'chuyen khoan', 6, 2),
+(139, 9, '3324', 1, '2023-12-28 20:01:22', 'chuyen khoan', 6, 0);
 
 -- --------------------------------------------------------
 
@@ -153,31 +138,9 @@ CREATE TABLE `tbl_cart_detail` (
 --
 
 INSERT INTO `tbl_cart_detail` (`id_cart_detail`, `code_cart`, `id_sanpham`, `soluongmua`) VALUES
-(24, '5601', 12, 2),
-(28, '5081', 12, 1),
-(29, '5081', 15, 1),
-(30, '6123', 11, 1),
-(31, '536', 12, 1),
-(32, '536', 15, 1),
-(33, '9201', 15, 1),
-(34, '8665', 15, 1),
-(35, '5171', 12, 1),
-(36, '7685', 12, 2),
-(37, '7047', 15, 1),
-(38, '249', 15, 1),
-(39, '4820', 11, 1),
-(40, '831', 11, 5),
-(41, '12', 468, 1),
-(42, '15', 468, 1),
-(43, '8036', 12, 1),
-(44, '8036', 15, 1),
-(45, '12', 6689, 1),
-(46, '15', 6689, 1),
-(47, '6207', 11, 4),
-(48, '8836', 12, 1),
-(49, '2084', 10, 1),
-(50, '2164', 10, 1),
-(51, '12', 1220, 1);
+(154, '9317', 11, 1),
+(155, '850', 11, 2),
+(156, '3324', 11, 1);
 
 -- --------------------------------------------------------
 
@@ -372,7 +335,16 @@ INSERT INTO `tbl_momo` (`id_momo`, `partner_code`, `order_id`, `amount`, `order_
 (1, 'MOMOBKUN20180529', 1697362566, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '2598'),
 (2, 'MOMOBKUN20180529', 1698061682, '1100000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '468'),
 (3, 'MOMOBKUN20180529', 1698062727, '1100000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '6689'),
-(4, 'MOMOBKUN20180529', 1699161057, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, '', '1220');
+(4, 'MOMOBKUN20180529', 1699161057, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, '', '1220'),
+(5, 'MOMOBKUN20180529', 1703329387, '200000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '8124'),
+(6, 'MOMOBKUN20180529', 1703331821, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '8916'),
+(7, 'MOMOBKUN20180529', 1703332020, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '5608'),
+(8, 'MOMOBKUN20180529', 1703332020, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '7481'),
+(9, 'MOMOBKUN20180529', 1703332020, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '1046'),
+(10, 'MOMOBKUN20180529', 1703332020, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '9945'),
+(11, 'MOMOBKUN20180529', 1703332020, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '1044'),
+(12, 'MOMOBKUN20180529', 1703332020, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '2584'),
+(13, 'MOMOBKUN20180529', 1703332020, '900000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '2128');
 
 -- --------------------------------------------------------
 
@@ -533,7 +505,17 @@ INSERT INTO `tbl_vnpay` (`id_vnpay`, `vnp_amount`, `vnp_bankcode`, `vnp_banktran
 (7, '20000000', 'NCB', 'VNP14143047', 'ATM', 'Thanh toan don hang tai web', '20231015202042', '54I1BLY5', '14143047', '9201'),
 (8, '90000000', 'NCB', 'VNP14145747', 'ATM', 'Thanh toan don hang tai web', '20231017175806', '54I1BLY5', '14145747', '5171'),
 (9, '180000000', 'NCB', 'VNP14151192', 'ATM', 'Thanh toan don hang tai web', '20231022174951', '54I1BLY5', '14151192', '7685'),
-(10, '110000000', 'NCB', 'VNP14152535', 'ATM', 'Thanh toan don hang tai web', '20231023190253', '54I1BLY5', '14152535', '8036');
+(10, '110000000', 'NCB', 'VNP14152535', 'ATM', 'Thanh toan don hang tai web', '20231023190253', '54I1BLY5', '14152535', '8036'),
+(11, '70000000', 'NCB', 'VNP14257989', 'ATM', 'Thanh toan don hang tai web', '20231223173815', '54I1BLY5', '14257989', '605'),
+(12, '70000000', 'NCB', 'VNP14257989', 'ATM', 'Thanh toan don hang tai web', '20231223173815', '54I1BLY5', '14257989', '605'),
+(13, '70000000', 'NCB', 'VNP14257989', 'ATM', 'Thanh toan don hang tai web', '20231223173815', '54I1BLY5', '14257989', '605'),
+(14, '70000000', 'NCB', 'VNP14257989', 'ATM', 'Thanh toan don hang tai web', '20231223173815', '54I1BLY5', '14257989', '605'),
+(15, '70000000', 'NCB', 'VNP14257989', 'ATM', 'Thanh toan don hang tai web', '20231223173815', '54I1BLY5', '14257989', '605'),
+(16, '20000000', 'NCB', 'VNP14258017', 'ATM', 'Thanh toan don hang tai web', '20231223181022', '54I1BLY5', '14258017', '8207'),
+(17, '90000000', 'NCB', 'VNP14258020', 'ATM', 'Thanh toan don hang tai web', '20231223181930', '54I1BLY5', '14258020', '2018'),
+(18, '90000000', 'NCB', 'VNP14258020', 'ATM', 'Thanh toan don hang tai web', '20231223181930', '54I1BLY5', '14258020', '2018'),
+(19, '80000000', 'VNPAY', '', 'QRCODE', 'Thanh toan don hang tai web', '20231223182619', '54I1BLY5', '0', '6989'),
+(20, '20000000', 'NCB', 'VNP14258028', 'ATM', 'Thanh toan don hang tai web', '20231223183351', '54I1BLY5', '14258028', '1487');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -685,13 +667,13 @@ ALTER TABLE `tbl_binhluanbaiviet`
 -- AUTO_INCREMENT cho bảng `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_cart_detail`
 --
 ALTER TABLE `tbl_cart_detail`
-  MODIFY `id_cart_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id_cart_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_coment`
@@ -745,7 +727,7 @@ ALTER TABLE `tbl_lienhe`
 -- AUTO_INCREMENT cho bảng `tbl_momo`
 --
 ALTER TABLE `tbl_momo`
-  MODIFY `id_momo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_momo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_productlove`
@@ -781,7 +763,7 @@ ALTER TABLE `tbl_thuonghieu`
 -- AUTO_INCREMENT cho bảng `tbl_vnpay`
 --
 ALTER TABLE `tbl_vnpay`
-  MODIFY `id_vnpay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_vnpay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
