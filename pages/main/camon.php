@@ -60,7 +60,7 @@ if (isset($_GET['vnp_Amount'])) {
     $cart_query = mysqli_query($conn,$insert_momo);
   
     if ($cart_query) {
-        $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date,cart_payment,cart_shipping)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."','".$cart_payment."','".$id_shipping."')";
+        $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date,cart_payment,cart_shipping,order_status)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."','".$cart_payment."','".$id_shipping."',0)";
         $cart_query = mysqli_query($conn,$insert_cart);
 
         foreach ($_SESSION['cart'] as $key => $value) {
@@ -137,10 +137,3 @@ if (isset($cart_payment)=='chuyen khoan') {
     <h2>Cam on ban da mua hang chung toi se lien he voi ban thoi gian som nhat</h2>
     <h3>Quy khach nho kiem tra mail <?php echo $_SESSION['email']?> de xem thong tin va ngay giao don hang</h3>
     <h3><br> Vui long nhan dien thoai qua so 1900 5688 cua shop chung toi</h3>
-    <script>
-		$(document).ready(function(){
-            swal({
-            icon: "success",
-            });
-        })
-    </script>

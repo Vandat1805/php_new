@@ -38,7 +38,7 @@
 
         if ($cart_payment=='tien mat') {
         //insert gio hang
-    $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date,cart_payment,cart_shipping)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."','".$cart_payment."','".$id_shipping."')";
+    $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date,cart_payment,cart_shipping,order_status)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."','".$cart_payment."','".$id_shipping."',0)";
     $cart_query = mysqli_query($conn,$insert_cart);
 
     if ($cart_query) {
@@ -111,7 +111,7 @@
                     , 'data' => $vnp_Url);
                     if (isset($_POST['redirect'])) {
                         $_SESSION['code_cart'] = $code_order;
-                        $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date,cart_payment,cart_shipping)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."','".$cart_payment."','".$id_shipping."')";
+                        $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date,cart_payment,cart_shipping,order_status)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."','".$cart_payment."','".$id_shipping."',0)";
                          $cart_query = mysqli_query($conn,$insert_cart);
                          if ($cart_query) {
                           //them gio hang chi tiet
@@ -149,7 +149,7 @@
                     }
                     
         }elseif ($cart_payment=='chuyen khoan') {
-            $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date,cart_payment,cart_shipping)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."','".$cart_payment."','".$id_shipping."')";
+            $insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date,cart_payment,cart_shipping,order_status)VALUES('".$id_khachhang."','".$code_order."',1,'".$now."','".$cart_payment."','".$id_shipping."',0)";
             $cart_query = mysqli_query($conn,$insert_cart);
         
             if ($cart_query) {

@@ -109,7 +109,7 @@ if (isset($_SESSION['id_khachhang'])) {
         <div class="col-md-4">
             <h4>Phuong thuc thanh toan</h4>
             <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" name="payment" id="exampleCheck1" value="tien mat">
+                <input type="checkbox" class="form-check-input" name="payment" id="exampleCheck1" value="tien mat" checked>
                 <img src="" alt="">
                 <label class="form-check-label" for="exampleCheck1">Tien mat</label>
             </div>
