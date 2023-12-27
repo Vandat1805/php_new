@@ -7,9 +7,9 @@
 	if ($page == '' || $page == 1) {
 		$begin = 0;
 	}else{
-		$begin = ($page*2)-2;
+		$begin = ($page*6)-6;
 	}
-     $sql_pro="SELECT * FROM tbl_sanpham,tbl_danhmuc,tbl_thuonghieu where tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.id_thuonghieu=tbl_thuonghieu.id_thuonghieu AND tbl_sanpham.id_sale = 0 order by tbl_sanpham.id_sanpham DESC limit $begin,2";
+     $sql_pro="SELECT * FROM tbl_sanpham,tbl_danhmuc,tbl_thuonghieu where tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.id_thuonghieu=tbl_thuonghieu.id_thuonghieu AND tbl_sanpham.id_sale = 0 order by tbl_sanpham.id_sanpham DESC limit $begin,6";
 	 $query_pro=mysqli_query($conn,$sql_pro);
      $sql_sale="SELECT * FROM tbl_sanpham,tbl_danhmuc,tbl_thuonghieu,tbl_even,tbl_khuyenmai where tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.id_thuonghieu=tbl_thuonghieu.id_thuonghieu AND tbl_khuyenmai.id_sanpham = tbl_sanpham.id_sanpham AND tbl_khuyenmai.id_even = tbl_even.id_even order by tbl_sanpham.id_sanpham";
 	 $query_sale=mysqli_query($conn,$sql_sale); 
@@ -97,7 +97,7 @@
 						<?php
 						$sql_trang = mysqli_query($conn,"SELECT * FROM tbl_sanpham WHERE tbl_sanpham.id_sale = 0");
 						$row_count = mysqli_num_rows($sql_trang);
-						$trang = ceil($row_count/2);
+						$trang = ceil($row_count/6);
 						?>
 						<p>Trang hien tai: <?php echo $page?>/<?php echo $trang?></p>
 						<ul>

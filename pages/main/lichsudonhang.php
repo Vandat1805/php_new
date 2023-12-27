@@ -63,13 +63,15 @@
         </td>
         <?php
             if ($row['order_status']==0) {
-              echo'<td style="color:red;">Dang cho xac nhan don hang</td>';
+              echo'<td style="color:#D82D8B;">Dang cho xac nhan don hang</td>';
             }elseif ($row['order_status']==1) {
               echo'<td style="color:blue;">Da xac nhan don hang</td>';
             }elseif ($row['order_status']==2) {
               echo'<td style="color:orange;">Dang cho van chuyen</td>';
             }elseif ($row['order_status']==3) {
               echo'<td style="color:green;">Da giao xong</td>';
+            }elseif ($row['order_status']==4) {
+              echo'<td style="color:red;">Huy don hang</td>';
             }
             ?>
         <!-- <td style="color:green;">Da giao xong</td> -->

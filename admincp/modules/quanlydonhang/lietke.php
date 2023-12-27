@@ -65,6 +65,7 @@
                                         <option value="1">Da xac nhan don hang</option>
                                         <option value="2">Dang cho van chuyen</option>
                                         <option value="3">Da giao xong</option>
+                                        <option value="4">Huy don hang</option>
                                       </select>
                                       <button type="submit" name="tinhtrangdon" class="btn btn-info">Xac nhan</button>
                 </form>
@@ -77,6 +78,8 @@
               echo'Dang cho van chuyen';
             }elseif ($row['order_status']==3) {
               echo'Da giao xong';
+            }elseif ($row['order_status']==4) {
+              echo'Huy don hang';
             }
             ?>
             </td>

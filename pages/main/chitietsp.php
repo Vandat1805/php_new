@@ -70,7 +70,7 @@ $query_mota=mysqli_query($conn,$sql_mota);
               <!--category-tab-->
               <div class="col-sm-12">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#details" data-toggle="tab">NOI DUNG</a></li>
+                  <li class="active"><a href="#details" data-toggle="tab">MO TA</a></li>
                   <li>
                     <a href="#companyprofile" data-toggle="tab"
                       >Tom tat</a
