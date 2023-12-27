@@ -62,7 +62,6 @@
 											<p>Danh muc: <?php echo $row['ten_danhmuc']?></p>
 											<p>Thuong hieu: <?php echo $row['ten_thuonghieu']?></p>
 										</a>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
 								</div>
 								<div class="choose">
