@@ -46,21 +46,25 @@
 						}
 					}
 						?>
+		<div class="features_items">
 						<h2 class="title text-center">San pham moi nhat</h2>
-		<div class="product-grid">
 					<?php
 					while($row = mysqli_fetch_array($query_pro)){
 					?>
-						<div class="product-item">
-							<a href="index.php?quanly=sanpham&idsanpham=<?php echo $row['id_sanpham']?>">
-							<img src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh']?>" alt="" />
-							<div class="product-content">
-											<h2 style="color: orange;"><?php echo number_format($row['giasp'],0,',','.').' vnd'?></h2>
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<a href="index.php?quanly=sanpham&idsanpham=<?php echo $row['id_sanpham']?>">
+											<img src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh']?>" alt="" />
+											<h2><?php echo number_format($row['giasp'],0,',','.').' vnd'?></h2>
 											<p><?php echo $row['tensanpham']?></p>
+											<p>Danh muc: <?php echo $row['ten_danhmuc']?></p>
+											<p>Thuong hieu: <?php echo $row['ten_thuonghieu']?></p>
 										</a>
-								<div>
-										<p>Danh muc: <?php echo $row['ten_danhmuc']?></p>
-										<p>Thuong hieu: <?php echo $row['ten_thuonghieu']?></p>
+										</div>
+								</div>
+								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 									<?php
 										if(isset($_SESSION['id_khachhang'])){
@@ -68,6 +72,7 @@
 									<form method="POST">
 									<li align=center><i class="fas fa-heart"></i>
 											<input type="hidden" name="id_sanpham" value="<?php echo $row['id_sanpham']?>" class="product_id_<?php echo $row['id_sanpham']?>">
+											<!-- <input style="border: none;background-color: transparent;" type="submit" value="Them san pham yeu thich" name="yeuthich"> -->
 											<button style="background-color: transparent;border:none;" type="button" class="add-product-love" data-id="<?php echo $row['id_sanpham']?>">Them san pham yeu thich</button>
 										</li>
 										</form>
@@ -76,14 +81,18 @@
 												echo '<p style="color:orange;font-weight:bold;text-align:center;"><br>Ban can dang nhap hoac dang ky de them san pham yeu thich</p>';
 											}
 											?>
+										
+										<!-- <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li> -->
 									</ul>
 								</div>
-								</div>
+							</div>
 						</div>
+						
 						<?php
 					}
 						?>
 						</div>
+						
 						<?php
 						$sql_trang = mysqli_query($conn,"SELECT * FROM tbl_sanpham WHERE tbl_sanpham.id_sale = 0");
 						$row_count = mysqli_num_rows($sql_trang);

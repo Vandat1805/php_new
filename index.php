@@ -27,21 +27,33 @@
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 <style>
-	/* .clearfix:after {
-  clear: both;
-  content: "";
-  display: block;
-  height: 0;
-} */
-
-/*
-.nav {
-	width: 850px;
-}
-.container {
-  font-family: 'Lato', sans-serif;
-}
-*/
+  .product-grid{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: auto auto;
+		grid-gap: 25px;
+	}
+	.product-item{
+		display: flex;
+		flex-direction: column;
+		border: 1px solid #F7F7F5;
+		overflow: hidden;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+	.product-content{
+		font-weight: 500;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	a{
+		color:black;
+	}
+	a:hover{
+		color:black;
+	}
 .arrow-steps .step {
   font-size: 14px;
   text-align: center;
